@@ -15,15 +15,28 @@ class Program
         chocolates[color] += count;
         for(int i = 0; i < count; i++)
         {
-            dispenserStack.Push(color);
+            dispenserStack.Push(color);   //adding in order to stack
         }
        
     }
-    
+    public void removeChocolates(int count)
+    {
+        Console.WriteLine("remove items from top---------");
+        for (int i = 0; i < count; i++)
+        {
+            Console.WriteLine(dispenserStack.Pop());   
+        }
+        Console.WriteLine("-------------------------------");
+    }
+
     public static void display()
     {
-        while (dispenserStack.Count > 0)
-            Console.Write(dispenserStack.Pop() + ",");
+        Console.WriteLine("chocolate in dispenser ------------");
+        foreach (string i in dispenserStack)
+        {
+            Console.WriteLine(i);
+        }
+        Console.WriteLine("---------------------------------");
     }
     public static void Main(string[] args)
     {
@@ -31,7 +44,8 @@ class Program
 
         dispenser.addChocolates("green", 2);
         dispenser.addChocolates("red", 2);
-
+        display();
+        dispenser.removeChocolates(3);
         display();
     }
 }
