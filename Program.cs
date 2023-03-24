@@ -76,7 +76,9 @@ class Program
 
         dispenser.addChocolates("green", 2);
         dispenser.addChocolates("red", 2);
-        dispenseChocolates(3);
+
+        //dispenseChocolates(3);
         //dispenseChocolatesOfColor("green");
+        //removeChocolates(2);
     }
 }
