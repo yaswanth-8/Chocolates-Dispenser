@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Metrics;
+using System.Drawing;
+
 class Program
 {
     public static Dictionary<string, int> chocolates = new Dictionary<string, int> {
@@ -29,6 +31,16 @@ class Program
             Console.WriteLine(dispenserStack.Pop());   
         }
         Console.WriteLine("-------------------------------");
+        Console.WriteLine("");
+    }
+
+    static void dispenseChocolatesOfColor(string color)
+    {
+        int colorCOunt = chocolates[color];
+        for(int i=0;i<colorCOunt; i++)
+        {
+            Console.WriteLine(color);
+        }
     }
 
     public static void display()
@@ -39,11 +51,12 @@ class Program
             Console.WriteLine(i);
         }
         Console.WriteLine("---------------------------------");
+        Console.WriteLine("");
     }
 
     public static void dispenseChocolates(int num)
     {
-        Console.WriteLine("chocolates from  bottom ------------");
+        Console.WriteLine("chocolates at bottom based on count -----");
         int start = chocolateCount - num;
         int ctne = 0;
         foreach (string i in dispenserStack)
@@ -55,6 +68,7 @@ class Program
             }
         }
         Console.WriteLine("------------------------------------");
+        Console.WriteLine("");
     }
     public static void Main(string[] args)
     {
@@ -63,6 +77,6 @@ class Program
         dispenser.addChocolates("green", 2);
         dispenser.addChocolates("red", 2);
         dispenseChocolates(3);
-        display();
+        //dispenseChocolatesOfColor("green");
     }
 }
