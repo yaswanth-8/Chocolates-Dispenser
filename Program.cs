@@ -9,10 +9,12 @@ class Program
         {"red", 0},
         {"pink", 0}
     };
+    public static int chocolateCount=0;
     public static Stack<String> dispenserStack = new Stack<String>();   //to maintain pushing order
     public void addChocolates(string color, int count)
     {
         chocolates[color] += count;
+        chocolateCount = count + chocolateCount;
         for(int i = 0; i < count; i++)
         {
             dispenserStack.Push(color);   //adding in order to stack
@@ -38,14 +40,29 @@ class Program
         }
         Console.WriteLine("---------------------------------");
     }
+
+    public static void dispenseChocolates(int num)
+    {
+        Console.WriteLine("chocolates from  bottom ------------");
+        int start = chocolateCount - num;
+        int ctne = 0;
+        foreach (string i in dispenserStack)
+        {
+            ctne++;
+            if (ctne > start)
+            {
+                Console.WriteLine(i);
+            }
+        }
+        Console.WriteLine("------------------------------------");
+    }
     public static void Main(string[] args)
     {
         Program dispenser = new Program();
 
         dispenser.addChocolates("green", 2);
         dispenser.addChocolates("red", 2);
-        display();
-        dispenser.removeChocolates(3);
+        dispenseChocolates(3);
         display();
     }
 }
