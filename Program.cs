@@ -212,8 +212,8 @@ class Program
         //dispenser.changeChocolateColorAllOfxCount("green", "white");
         //dispenser.removeChocolateOfColor("green");
         //dispenser.sortChocolateBasedOnCount();
-        Console.WriteLine(dispenser.dispenseRainbowChocolates());
-        display();
+        //Console.WriteLine(dispenser.dispenseRainbowChocolates());
+        //display();
 
     }
 }
